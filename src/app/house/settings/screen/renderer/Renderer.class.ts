@@ -1,3 +1,4 @@
+import { provideImgixLoader } from '@angular/common';
 import * as THREE from 'three';
 
 
@@ -15,16 +16,18 @@ export default class Renderer {
         this.sizes = sizes;
 
         this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
-        this.rendererSize();
+        
+        
+        this.rendererUpdates();
         this.live();
     }
 
-    rendererSize(){
+    rendererUpdates(){
         this.renderer.setSize(this.sizes.width, this.sizes.height);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     }
 
     live = () => {
-        
         
         this.renderer.render(this.scene, this.camera);
         requestAnimationFrame(this.live)

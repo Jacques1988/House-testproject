@@ -2,6 +2,8 @@ import Renderer from "./renderer/Renderer.class";
 import MainCamera from "./cameras/MainCamera.class";
 import Scene from "./scene/Scene.class";
 
+import screenfull from "screenfull";
+
 export default class Screen {
     renderer: any;
     mainCamera: any;
@@ -30,7 +32,16 @@ export default class Screen {
             this.sizes.aspect = window.innerWidth / window.innerHeight;
             this.mainCamera.camera.aspect = this.sizes.aspect;
             this.mainCamera.startCamera();
-            this.renderer.rendererSize();
+            this.renderer.rendererUpdates();
+        })
+
+        window.addEventListener('dblclick', () => {
+            if(screenfull.isEnabled){
+                screenfull.toggle();
+                if(screenfull.isEnabled){
+                    screenfull.on('change', () => {console.log(screenfull.isFullscreen ? ' is Fullscreen' : 'no Fullscreen')})
+                }
+            }
         })
 
        

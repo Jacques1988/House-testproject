@@ -19,7 +19,7 @@ export default class Renderer {
         this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
         this.controls = new OrbitControls(this.camera, this.canvas);
         this.controls.enableDamping = true;
-        
+        this.renderer.shadowMap.enabled = true;
         this.rendererUpdates();
         this.live();
     }

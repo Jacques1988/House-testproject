@@ -8,6 +8,7 @@ export default class MainCamera {
     constructor(sizes: any) {
 
         this.camera = new THREE.PerspectiveCamera(75, sizes.aspect, 0.001, 1000);
+        
         this.startCamera();
     }
 

@@ -2,18 +2,28 @@ import * as THREE from 'three';
 import Cubeloader from '../../cubeloader/CubeLoader.class';
 
 import AmbientLight from 'src/app/house/Objects/lights/AmbientLight.class';
-import MainArea from 'src/app/house/Objects/area/mainArea.class'; 
+import DirectionalLight from 'src/app/house/Objects/lights/DirectionalLight.class';
+
+import MainArea from 'src/app/house/Objects/area/mainArea.class';
+import Groundwork from 'src/app/house/Objects/groundwork/Groundwork.class';
 
 export default class Scene {
 
     scene: any = new THREE.Scene();
-    mainCamera:any;
-    
-    light:any;
-    background:any;
-    area:any;
+    mainCamera: any;
 
-    constructor(camera:any) {
+    ambientLight: any;
+    directionalLight: any;
+
+    background: any;
+    area: any;
+    groundwork: any;
+
+    //helpers
+    DLightHelper:any;
+
+
+    constructor(camera: any) {
 
         //Background
         const background = new Cubeloader();
@@ -21,22 +31,31 @@ export default class Scene {
 
         //Camera
         this.mainCamera = camera;
-        this.mainCamera.position.set(0,2,3);
-        
+        this.mainCamera.position.set(0, 2, 20);
+
 
         //area
         const area = new MainArea();
         this.area = area.buildMainArea();
 
+        //Groundwork
+        const groundwork = new Groundwork(30, 0.5, 30, 100, 100);
+        this.groundwork = groundwork.buildGroundwork();
+
 
         //Lights
-        const ambientLight = new AmbientLight('#ffffff', 0.8);
-        this.light = ambientLight.createAmbientLight();
+        const ambientLight = new AmbientLight('#ffffff', 0.35);
+        this.ambientLight = ambientLight.createAmbientLight();
 
+        const directionalLight = new DirectionalLight('#ffffff', 0.8);
+        this.directionalLight = directionalLight.buildDirectionalLight();
+
+        //helpers
+        this.DLightHelper = new THREE.DirectionalLightHelper(this.directionalLight, 40,);
 
         //Start this scene
         this.startScene();
-        
+
     }
 
     startScene() {
@@ -45,8 +64,11 @@ export default class Scene {
 
         this.scene.add(
             this.mainCamera,
-            this.light,
-            this.area
+            /* this.DLightHelper, */
+            this.ambientLight,
+            this.directionalLight,
+            this.area,
+            this.groundwork
         );
         return this.scene;
     }

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { NearestFilter, RepeatWrapping } from 'three';
+import { NearestFilter, NearestMipMapLinearFilter, NearestMipMapNearestFilter, RepeatWrapping } from 'three';
 import TextureLoader from '../../settings/textureLoader/TextureLoader.class';
 
 export default class MainArea {
@@ -16,12 +16,12 @@ export default class MainArea {
                 map: this.areaImages[0],
                 transparent: true,
                 aoMap: this.areaImages[1],
-                aoMapIntensity: 0.5,
+                aoMapIntensity: 0.01,
                 displacementMap: this.areaImages[2],
-                displacementScale: 1,
+                displacementScale: 0.01,
                 normalMap: this.areaImages[3],
                 roughnessMap: this.areaImages[4],
-                roughness: 0.5
+                roughness: 1
             })
         );
 
@@ -48,6 +48,8 @@ export default class MainArea {
 
 
         this.area.rotation.x = - Math.PI * 0.5;
+
+        this.area.receiveShadow = true;
     }
 
     buildMainArea() {

@@ -6,7 +6,7 @@ export default class AmbientLight{
 
     constructor(color:any, brightness:number){
         this.light = new THREE.AmbientLight(color, brightness);
-        this.createAmbientLight();
+        this.light.position.set(-10, 10, 10);
     }
 
     createAmbientLight(){

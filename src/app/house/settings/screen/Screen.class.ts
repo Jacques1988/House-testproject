@@ -42,8 +42,6 @@ export default class Screen {
                     screenfull.on('change', () => {console.log(screenfull.isFullscreen ? ' is Fullscreen' : 'no Fullscreen')})
                 }
             }
-        })
-
-       
+        })  
     }
 }

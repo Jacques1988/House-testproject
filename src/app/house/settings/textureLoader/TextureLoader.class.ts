@@ -3,8 +3,13 @@ import * as THREE from 'three';
 export default class TextureLoader {
     loadingManager = new THREE.LoadingManager();
     textureLoader = new THREE.TextureLoader(this.loadingManager);
+
+    //Grounds
     groundImages = [];
     groundworkImages = [];
+
+    // Houses
+    modernHouseWall = [];
 
     constructor() {
         this.loadingManager.onStart = () => {
@@ -35,6 +40,16 @@ export default class TextureLoader {
         const Groundwork_Roughness = this.textureLoader.load('../../assets/images/groundwork/elegantGroundwork/Groundwork_Color.jpg');
         this.groundworkImages.push(Groundwork_Color, Groundwork_AO, Groundwork_Height, Groundwork_Normal, Groundwork_Roughness);
         return this.groundworkImages;
+    }
+
+    loadModernHouseImages() {
+        const Modern_Color = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_Color.jpg');
+        const Modern_AO = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_AO.jpg');
+        const Modern_Height = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_Color.png');
+        const Modern_Normal = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_Normal.jpg');
+        const Modern_Roughness = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_Roughness.jpg');
+        this.modernHouseWall.push(Modern_Color, Modern_AO, Modern_Height, Modern_Normal, Modern_Roughness);
+        return this.modernHouseWall;
     }
 
 }

@@ -20,6 +20,7 @@ export default class Lock{
                 metalnessMap:this.lockImages[4],
                 metalness: -0.8,
                 alphaMap: this.lockImages[5],
+                alphaTest:0.1,
                 roughnessMap: this.lockImages[6],
                 roughness: 0.5
             })

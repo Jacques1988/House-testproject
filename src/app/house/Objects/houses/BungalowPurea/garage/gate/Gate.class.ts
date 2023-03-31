@@ -1,6 +1,6 @@
 import TextureLoader from 'src/app/house/settings/textureLoader/TextureLoader.class';
 import * as THREE from 'three';
-import { RepeatWrapping } from 'three';
+import { NearestFilter, RepeatWrapping } from 'three';
 
 import Lock from '../../../Lock.class';
 
@@ -50,7 +50,10 @@ export default class Gate{
         this.garageGateImages[4].repeat.set(this.setRepeat, this.setRepeat);
 
         this.garageGate.position.set(0, -0.25, 3.00);
-        this.lock.position.set(0, 0.75, 3.055);
+        this.lock.position.set(0, -0.75, 3.045);
+        
+            this.garageGate.minFilter = NearestFilter;
+            this.lock.minFilter = NearestFilter;
 
         this.gate.add(
             this.garageGate,

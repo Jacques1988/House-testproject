@@ -7,8 +7,6 @@ import DirectionalLight from 'src/app/house/Objects/lights/DirectionalLight.clas
 import MainArea from 'src/app/house/Objects/area/mainArea.class';
 import Groundwork from 'src/app/house/Objects/groundwork/Groundwork.class';
 
-/* import ModernHouse from 'src/app/house/Objects/houses/BungalowPurea/BungalowPurea.class'; */
-
 import BungalowPurea from 'src/app/house/Objects/houses/BungalowPurea/BungalowPurea.class';
 
 export default class Scene {

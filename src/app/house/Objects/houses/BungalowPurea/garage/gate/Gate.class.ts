@@ -2,11 +2,16 @@ import TextureLoader from 'src/app/house/settings/textureLoader/TextureLoader.cl
 import * as THREE from 'three';
 import { RepeatWrapping } from 'three';
 
+import Lock from '../../../Lock.class';
+
 export default class Gate{
     textureloader = new TextureLoader();
+    gate:any = new THREE.Group();
     garageGate: any;
     garageGateImages = [];
     setRepeat: number = 2;
+
+    lock:any = new Lock().buildLock();
 
     constructor(){
         this.garageGateImages = this.textureloader.loadBungalowPureaGarageGateImages();
@@ -25,8 +30,7 @@ export default class Gate{
                 metalness: 0.5
             })
         )
-        this.garageGate.position.set(0, -0.25, 3.00);
-
+        
         this.garageGateImages[0].wrapS = RepeatWrapping;
         this.garageGateImages[1].wrapS = RepeatWrapping;
         this.garageGateImages[2].wrapS = RepeatWrapping;
@@ -44,9 +48,17 @@ export default class Gate{
         this.garageGateImages[2].repeat.set(this.setRepeat, this.setRepeat);
         this.garageGateImages[3].repeat.set(this.setRepeat, this.setRepeat);
         this.garageGateImages[4].repeat.set(this.setRepeat, this.setRepeat);
+
+        this.garageGate.position.set(0, -0.25, 3.00);
+        this.lock.position.set(0, 0.75, 3.055);
+
+        this.gate.add(
+            this.garageGate,
+            this.lock
+        )
     }
 
     buildGate(){
-        return this.garageGate;
+        return this.gate;
     }
 }

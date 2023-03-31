@@ -11,6 +11,8 @@ export default class TextureLoader {
     // Houses
     bungalowPureaWallImages = [];
     garageGateImages = [];
+    //Locks
+    lockImages = [];
 
     constructor() {
         this.loadingManager.onStart = () => {
@@ -61,6 +63,18 @@ export default class TextureLoader {
         const Garage_Metalness = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_Metalness.jpg');
         this.garageGateImages.push(Garage_Color, Garage_AO, Garage_Height, Garage_Normal, Garage_Metalness);
         return this.garageGateImages;
+    }
+
+    loadLockImages(){
+        const Lock_Color = this.textureLoader.load('../../assets/images/houses/locks/Lock_Color.jpg');
+        const Lock_AO = this.textureLoader.load('../../assets/images/houses/locks/Lock_AO.jpg');
+        const Lock_Height = this.textureLoader.load('../../assets/images/houses/locks/Lock_Height.png');
+        const Lock_Normal = this.textureLoader.load('../../assets/images/houses/locks/Lock_Normal.jpg');
+        const Lock_Metalness = this.textureLoader.load('../../assets/images/houses/locks/Lock_Metalness.jpg');
+        const Lock_Opacity = this.textureLoader.load('../../assets/images/houses/locks/Lock_Opacity.jpg');
+        const Lock_Roughness = this.textureLoader.load('../../assets/images/houses/locks/Lock_Roughness.jpg');
+        this.lockImages.push(Lock_Color, Lock_AO, Lock_Height, Lock_Normal, Lock_Metalness, Lock_Opacity, Lock_Roughness);
+        return this.lockImages;
     }
 
 }

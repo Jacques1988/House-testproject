@@ -7,6 +7,10 @@ import DirectionalLight from 'src/app/house/Objects/lights/DirectionalLight.clas
 import MainArea from 'src/app/house/Objects/area/mainArea.class';
 import Groundwork from 'src/app/house/Objects/groundwork/Groundwork.class';
 
+/* import ModernHouse from 'src/app/house/Objects/houses/BungalowPurea/BungalowPurea.class'; */
+
+import BungalowPurea from 'src/app/house/Objects/houses/BungalowPurea/BungalowPurea.class';
+
 export default class Scene {
 
     scene: any = new THREE.Scene();
@@ -18,6 +22,8 @@ export default class Scene {
     background: any;
     area: any;
     groundwork: any;
+
+    house:any;
 
     //helpers
     DLightHelper:any;
@@ -43,6 +49,10 @@ export default class Scene {
         this.groundwork = groundwork.buildGroundwork();
 
 
+        //House
+        const bungalowPurea = new BungalowPurea();
+        this.house = bungalowPurea.buildHouse();
+
         //Lights
         const ambientLight = new AmbientLight('#ffffff', 0.35);
         this.ambientLight = ambientLight.createAmbientLight();
@@ -51,7 +61,7 @@ export default class Scene {
         this.directionalLight = directionalLight.buildDirectionalLight();
 
         //helpers
-        this.DLightHelper = new THREE.DirectionalLightHelper(this.directionalLight, 40,);
+        this.DLightHelper = new THREE.CameraHelper(this.directionalLight.shadow.camera);
 
         //Start this scene
         this.startScene();
@@ -68,7 +78,8 @@ export default class Scene {
             this.ambientLight,
             this.directionalLight,
             this.area,
-            this.groundwork
+            this.groundwork,
+            this.house
         );
         return this.scene;
     }

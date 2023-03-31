@@ -9,7 +9,8 @@ export default class TextureLoader {
     groundworkImages = [];
 
     // Houses
-    modernHouseWall = [];
+    bungalowPureaWallImages = [];
+    garageGateImages = [];
 
     constructor() {
         this.loadingManager.onStart = () => {
@@ -42,14 +43,24 @@ export default class TextureLoader {
         return this.groundworkImages;
     }
 
-    loadModernHouseImages() {
-        const Modern_Color = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_Color.jpg');
-        const Modern_AO = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_AO.jpg');
-        const Modern_Height = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_Color.png');
-        const Modern_Normal = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_Normal.jpg');
-        const Modern_Roughness = this.textureLoader.load('../../assets/images/houses/modernDecent/Modern_Roughness.jpg');
-        this.modernHouseWall.push(Modern_Color, Modern_AO, Modern_Height, Modern_Normal, Modern_Roughness);
-        return this.modernHouseWall;
+    loadBungalowPureaImages() {
+        const Modern_Color = this.textureLoader.load('../../assets/images/houses/BungalowPurea/walls/Modern_Color.jpg');
+        const Modern_AO = this.textureLoader.load('../../assets/images/houses/BungalowPurea/walls/Modern_AO.jpg');
+        const Modern_Height = this.textureLoader.load('../../assets/images/houses/BungalowPurea/walls/Modern_Height.png');
+        const Modern_Normal = this.textureLoader.load('../../assets/images/houses/BungalowPurea/walls/Modern_Normal.jpg');
+        const Modern_Roughness = this.textureLoader.load('../../assets/images/houses/BungalowPurea/walls/Modern_Roughness.jpg');
+        this.bungalowPureaWallImages.push(Modern_Color, Modern_AO, Modern_Height, Modern_Normal, Modern_Roughness);
+        return this.bungalowPureaWallImages;
+    }
+
+    loadBungalowPureaGarageGateImages(){
+        const Garage_Color = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_Color.jpg');
+        const Garage_AO = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_AO.jpg');
+        const Garage_Height = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_Height.png');
+        const Garage_Normal = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_Normal.jpg');
+        const Garage_Metalness = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_Metalness.jpg');
+        this.garageGateImages.push(Garage_Color, Garage_AO, Garage_Height, Garage_Normal, Garage_Metalness);
+        return this.garageGateImages;
     }
 
 }

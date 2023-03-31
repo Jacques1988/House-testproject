@@ -6,13 +6,20 @@ export default class DirectionalLight{
 
     constructor(color:any, brightness:number){
        this.light = new THREE.DirectionalLight(color, brightness);
-       this.light.position.set(10,10,-10);
+       this.light.position.set(0,10,10);
        this.light.castShadow = true;
 
-       this.light.shadow.mapSize.width = 512;
-       this.light.shadow.mapSize.height = 512;
-       this.light.shadow.camera.near = 0.5;
-       this.light.shadow.camera.far = 500;
+       this.light.shadow.mapSize.width = 1024;
+       this.light.shadow.mapSize.height = 1024;
+
+       this.light.shadow.camera.top = 20;
+       this.light.shadow.camera.right = 20;
+       this.light.shadow.camera.bottom = -20;
+       this.light.shadow.camera.left = -20;
+
+       this.light.shadow.camera.near = 1;
+       this.light.shadow.camera.far = 40;
+    
     }
 
     buildDirectionalLight(){

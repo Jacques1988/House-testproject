@@ -2,29 +2,29 @@ import * as THREE from 'three';
 import TextureLoader from 'src/app/house/settings/textureLoader/TextureLoader.class';
 
 
-export default class Glass{
+export default class Glass {
     GlassImages = new TextureLoader().loadGarageGlassImages();
-    Glass:any;
-    setRepeat:number = 1;
-    
+    Glass: any;
+    setRepeat: number = 1;
 
-    constructor(length:number, height:number){
+
+    constructor(length: number, height: number) {
         this.Glass = new THREE.Mesh(
             new THREE.PlaneGeometry(length, height, 100, 100),
             new THREE.MeshPhysicalMaterial({
                 map: this.GlassImages[0],
-                transparent:true,
-                transmission:1,
+                transparent: true,
+                transmission: 1,
                 aoMap: this.GlassImages[1],
-                aoMapIntensity:0.1,
+                aoMapIntensity: 0.1,
                 displacementMap: this.GlassImages[2],
-                displacementScale:0.01,
+                displacementScale: 0.01,
                 normalMap: this.GlassImages[3],
                 roughnessMap: this.GlassImages[4],
-                roughness:0,
-                metalness:0.1,   
+                roughness: 0,
+                metalness: 0.1,
             })
-            
+
         )
 
         this.GlassImages[0].wrapS = THREE.RepeatWrapping;
@@ -49,13 +49,14 @@ export default class Glass{
         this.Glass.receiveShadow = true;
     }
 
-    buildGarageGlass(x:number, y:number, z:number){
-        this.Glass.position.set(x,y,z);
+    buildGarageGlass(x: number, y: number, z: number) {
+        this.Glass.position.set(x, y, z);
         return this.Glass;
     }
 
-    buildWindowGlass(x:number, y:number, z:number){
-        /* this.Glass.position.set(x,y,z); */
+    buildWindowGlass(x: number, y: number, z: number) {
         return this.Glass;
     }
+
+    
 }

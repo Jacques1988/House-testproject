@@ -12,7 +12,7 @@ export default class Gate {
     setRepeat: number = 2;
 
     lock: any = new Lock().buildLock();
-    garageGlass: any = new Glass(4.75, 0.5).buildWindowGlass(0, 0.6, 3.05);
+    garageGlass: any = new Glass(4.75, 0.5).buildGarageGlass(0, 0.6, 3.05);
 
     constructor() {
         this.garageGateImages = this.textureloader.loadBungalowPureaGarageGateImages();

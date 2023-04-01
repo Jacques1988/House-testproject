@@ -10,11 +10,11 @@ export default class Window {
     length: any;
     height: any;
 
-    constructor(length: number, height: number) {
+    constructor(length: number, height: number, verticesA: number = 100, verticesB: number = 100) {
         this.length = length;
         this.height = height;
         this.windowBorder = new THREE.Mesh(
-            new THREE.PlaneGeometry(this.length, this.height, 100, 100),
+            new THREE.PlaneGeometry(this.length, this.height, verticesA, verticesB),
             new THREE.MeshPhysicalMaterial({
                 color: new THREE.Color('#242424'),
                 map: this.windowImages[0],
@@ -33,15 +33,20 @@ export default class Window {
                 transmission: 0,
             })
         )
-
-
     }
 
     buildWindow(x: number, y: number, z: number) {
         this.windowGlass = new WindowGlass(this.length * 0.75, this.height * 0.7).buildWindowGlass(x, y, z);
         this.window.position.set(x, y, z)
         this.window.add(this.windowBorder, this.windowGlass);
-        
+
+        return this.window;
+    }
+
+    buildSlidingDoor(x: number, y: number, z: number, verticesA: number, verticesB: number) {
+        this.windowGlass = new WindowGlass(this.length * 0.75, this.height * 0.7).buildWindowGlass(x, y, z);
+        this.window.position.set(x, y, z);
+        this.window.add(this.windowBorder, this.windowGlass);
         return this.window;
     }
 }

@@ -4,17 +4,17 @@ import * as THREE from 'three';
 import Lock from '../../../Lock.class';
 import GarageWindow from './GateWindow.class';
 
-export default class Gate{
+export default class Gate {
     textureloader = new TextureLoader();
-    gate:any = new THREE.Group();
+    gate: any = new THREE.Group();
     garageGate: any;
     garageGateImages = [];
     setRepeat: number = 2;
 
-    lock:any = new Lock().buildLock();
-    garageGlass:any = new GarageWindow().buildGarageGlass();
+    lock: any = new Lock().buildLock();
+    garageGlass: any = new GarageWindow().buildGarageGlass();
 
-    constructor(){
+    constructor() {
         this.garageGateImages = this.textureloader.loadBungalowPureaGarageGateImages();
         this.garageGate = new THREE.Mesh(
             new THREE.PlaneGeometry(5, 2.5, 100, 100),
@@ -31,7 +31,7 @@ export default class Gate{
                 metalness: 0.5
             })
         )
-        
+
         this.garageGateImages[0].wrapS = THREE.RepeatWrapping;
         this.garageGateImages[1].wrapS = THREE.RepeatWrapping;
         this.garageGateImages[2].wrapS = THREE.RepeatWrapping;
@@ -52,9 +52,10 @@ export default class Gate{
 
         this.garageGate.position.set(0, -0.25, 3.00);
         this.lock.position.set(0, -0.75, 3.045);
-        
-            this.garageGate.minFilter = THREE.NearestFilter;
-            this.lock.minFilter = THREE.NearestFilter;
+
+        this.garageGate.minFilter = THREE.NearestFilter;
+        this.lock.minFilter = THREE.NearestFilter;
+        this.garageGate.receiveShadow = true;
 
         this.gate.add(
             this.garageGate,
@@ -63,7 +64,7 @@ export default class Gate{
         )
     }
 
-    buildGate(){
+    buildGate() {
         return this.gate;
     }
 }

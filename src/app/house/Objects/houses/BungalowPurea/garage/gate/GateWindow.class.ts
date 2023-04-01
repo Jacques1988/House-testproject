@@ -42,6 +42,7 @@ export default class GarageWindow{
         this.garageGlassImages[3].repeat.set(10, this.setRepeat);
         this.garageGlassImages[4].repeat.set(10, this.setRepeat);
 
+        this.garageGlass.minFilter = THREE.NearestFilter;
         this.garageGlass.position.set(0,0.6,3.05);
         this.garageGlass.receiveShadow = true;
     }

@@ -26,7 +26,7 @@ export default class Gate{
                 displacementScale: 0.05,
                 normalMap: this.garageGateImages[3],
                 roughnessMap: this.garageGateImages[4],
-                roughness: 0.5,
+                roughness: 0.1,
                 metalness: 0.5
             })
         )

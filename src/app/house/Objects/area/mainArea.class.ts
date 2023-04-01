@@ -5,13 +5,13 @@ import TextureLoader from '../../settings/textureLoader/TextureLoader.class';
 export default class MainArea {
     area: any;
     areaImages = [];
-    repeatImage: number = 5000;
+    repeatImage: number = 100;
 
     constructor() {
         const areaImages = new TextureLoader();
         this.areaImages = areaImages.loadGroundImages();
         this.area = new THREE.Mesh(
-            new THREE.PlaneGeometry(10000, 10000, 100, 100),
+            new THREE.PlaneGeometry(200, 200, 100, 100),
             new THREE.MeshStandardMaterial({
                 map: this.areaImages[0],
                 transparent: true,

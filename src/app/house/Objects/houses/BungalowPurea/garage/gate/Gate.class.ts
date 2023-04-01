@@ -2,7 +2,7 @@ import TextureLoader from 'src/app/house/settings/textureLoader/TextureLoader.cl
 import * as THREE from 'three';
 
 import Lock from '../../../Lock.class';
-import GarageWindow from './GateWindow.class';
+import Glass from '../../window/WindowGlass.class';
 
 export default class Gate {
     textureloader = new TextureLoader();
@@ -12,7 +12,7 @@ export default class Gate {
     setRepeat: number = 2;
 
     lock: any = new Lock().buildLock();
-    garageGlass: any = new GarageWindow().buildGarageGlass();
+    garageGlass: any = new Glass(4.75, 0.5).buildWindowGlass(0, 0.6, 3.05);
 
     constructor() {
         this.garageGateImages = this.textureloader.loadBungalowPureaGarageGateImages();

@@ -12,7 +12,7 @@ export default class TextureLoader {
     bungalowPureaWallImages = [];
     garageGateImages = [];
     garageGlassImages = [];
-
+    windowImages = [];
 
     //Locks
     lockImages = [];
@@ -83,11 +83,23 @@ export default class TextureLoader {
     loadGarageGlassImages(){
         const Glass_Color = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_Color.jpg');
         const Glass_AO = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_AO.jpg');
-        const Glass_Height = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_Height.jpg');
+        const Glass_Height = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_Height.png');
         const Glass_Normal = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_Normal.jpg');
         const Glass_Roughness = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_Roughness.jpg');
         this.garageGlassImages.push(Glass_Color, Glass_AO, Glass_Height, Glass_Normal, Glass_Roughness);
         return this.garageGlassImages;
+    }
+
+    loadWindowImages(){
+        const Window_Color = this.textureLoader.load('../../assets/images/houses/Windows/Window_Color.jpg');
+        const Window_AO = this.textureLoader.load('../../assets/images/houses/Windows/Window_AO.jpg');
+        const Window_Height = this.textureLoader.load('../../assets/images/houses/Windows/Window_Height.png');
+        const Window_Normal = this.textureLoader.load('../../assets/images/houses/Windows/Window_Normal.jpg');
+        const Window_Metalness = this.textureLoader.load('../../assets/images/houses/Windows/Window_Metalness.jpg');
+        const Window_Alpha = this.textureLoader.load('../../assets/images/houses/Windows/Window_Alpha.jpg');
+        const Window_Roughness = this.textureLoader.load('../../assets/images/houses/Windows/Window_Roughness.jpg');
+        this.windowImages.push(Window_Color, Window_AO, Window_Height, Window_Normal, Window_Metalness, Window_Alpha, Window_Roughness);
+        return this.windowImages;
     }
 
 }

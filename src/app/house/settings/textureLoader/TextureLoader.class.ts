@@ -39,11 +39,11 @@ export default class TextureLoader {
 
 
     loadGroundworkImages() {
-        const Groundwork_Color = this.textureLoader.load('../../assets/images/groundwork/elegantGroundwork/Groundwork_Color.jpg');
-        const Groundwork_AO = this.textureLoader.load('../../assets/images/groundwork/elegantGroundwork/Groundwork_AO.jpg');
-        const Groundwork_Height = this.textureLoader.load('../../assets/images/groundwork/elegantGroundwork/Groundwork_Height.png');
-        const Groundwork_Normal = this.textureLoader.load('../../assets/images/groundwork/elegantGroundwork/Groundwork_Normal.jpg');
-        const Groundwork_Roughness = this.textureLoader.load('../../assets/images/groundwork/elegantGroundwork/Groundwork_Color.jpg');
+        const Groundwork_Color = this.textureLoader.load('../../assets/images/groundwork/Gravel/Groundwork_Color.jpg');
+        const Groundwork_AO = this.textureLoader.load('../../assets/images/groundwork/Gravel/Groundwork_AO.jpg');
+        const Groundwork_Height = this.textureLoader.load('../../assets/images/groundwork/Gravel/Groundwork_Height.png');
+        const Groundwork_Normal = this.textureLoader.load('../../assets/images/groundwork/Gravel/Groundwork_Normal.jpg');
+        const Groundwork_Roughness = this.textureLoader.load('../../assets/images/groundwork/Gravel/Groundwork_Color.jpg');
         this.groundworkImages.push(Groundwork_Color, Groundwork_AO, Groundwork_Height, Groundwork_Normal, Groundwork_Roughness);
         return this.groundworkImages;
     }

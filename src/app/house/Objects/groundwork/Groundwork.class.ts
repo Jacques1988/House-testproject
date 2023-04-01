@@ -7,7 +7,7 @@ export default class Groundwork {
     groundworkGeometry:any; 
     groundworkMaterial:any;
     groundwork:any;
-    repeat:number = 5;
+    repeat:number = 20;
     
 
     constructor(length:number, height:number, width:number, verticesA:number, verticesB:number){
@@ -24,7 +24,7 @@ export default class Groundwork {
             displacementScale: 0.001,
             normalMap: this.groundworkImages[3],
             roughnessMap: this.groundworkImages[4],
-            roughness: 0.5
+            roughness: 0.1
         })
         this.groundwork = new THREE.Mesh(this.groundworkGeometry, this.groundworkMaterial);
 

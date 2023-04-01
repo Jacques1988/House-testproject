@@ -1,8 +1,8 @@
 import TextureLoader from 'src/app/house/settings/textureLoader/TextureLoader.class';
 import * as THREE from 'three';
-import { NearestFilter, RepeatWrapping } from 'three';
 
 import Lock from '../../../Lock.class';
+import GarageWindow from './GateWindow.class';
 
 export default class Gate{
     textureloader = new TextureLoader();
@@ -12,6 +12,7 @@ export default class Gate{
     setRepeat: number = 2;
 
     lock:any = new Lock().buildLock();
+    garageGlass:any = new GarageWindow().buildGarageGlass();
 
     constructor(){
         this.garageGateImages = this.textureloader.loadBungalowPureaGarageGateImages();
@@ -31,17 +32,17 @@ export default class Gate{
             })
         )
         
-        this.garageGateImages[0].wrapS = RepeatWrapping;
-        this.garageGateImages[1].wrapS = RepeatWrapping;
-        this.garageGateImages[2].wrapS = RepeatWrapping;
-        this.garageGateImages[3].wrapS = RepeatWrapping;
-        this.garageGateImages[4].wrapS = RepeatWrapping;
+        this.garageGateImages[0].wrapS = THREE.RepeatWrapping;
+        this.garageGateImages[1].wrapS = THREE.RepeatWrapping;
+        this.garageGateImages[2].wrapS = THREE.RepeatWrapping;
+        this.garageGateImages[3].wrapS = THREE.RepeatWrapping;
+        this.garageGateImages[4].wrapS = THREE.RepeatWrapping;
 
-        this.garageGateImages[0].wrapT = RepeatWrapping;
-        this.garageGateImages[1].wrapT = RepeatWrapping;
-        this.garageGateImages[2].wrapT = RepeatWrapping;
-        this.garageGateImages[3].wrapT = RepeatWrapping;
-        this.garageGateImages[4].wrapT = RepeatWrapping;
+        this.garageGateImages[0].wrapT = THREE.RepeatWrapping;
+        this.garageGateImages[1].wrapT = THREE.RepeatWrapping;
+        this.garageGateImages[2].wrapT = THREE.RepeatWrapping;
+        this.garageGateImages[3].wrapT = THREE.RepeatWrapping;
+        this.garageGateImages[4].wrapT = THREE.RepeatWrapping;
 
         this.garageGateImages[0].repeat.set(this.setRepeat, this.setRepeat);
         this.garageGateImages[1].repeat.set(this.setRepeat, this.setRepeat);
@@ -52,11 +53,12 @@ export default class Gate{
         this.garageGate.position.set(0, -0.25, 3.00);
         this.lock.position.set(0, -0.75, 3.045);
         
-            this.garageGate.minFilter = NearestFilter;
-            this.lock.minFilter = NearestFilter;
+            this.garageGate.minFilter = THREE.NearestFilter;
+            this.lock.minFilter = THREE.NearestFilter;
 
         this.gate.add(
             this.garageGate,
+            this.garageGlass,
             this.lock
         )
     }

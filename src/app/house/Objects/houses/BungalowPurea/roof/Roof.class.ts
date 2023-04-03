@@ -26,6 +26,8 @@ export default class Roof {
             this.topRight,
             this.topBackside
         )
+
+        this.roof.minFilter = THREE.NearestFilter;
     }
 
     buildRoof() {

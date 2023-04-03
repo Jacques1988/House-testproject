@@ -6,9 +6,9 @@ export default class Lock{
     lock: any;
     lockImages = new TextureLoader().loadLockImages();
 
-    constructor(){
+    constructor(lenght:number, height:number){
         this.lock = new THREE.Mesh(
-            new THREE.PlaneGeometry(0.15, 0.15, 100, 100),
+            new THREE.PlaneGeometry(lenght, height, 100, 100),
             new THREE.MeshStandardMaterial({
                 map: this.lockImages[0],
                 transparent: true,
@@ -25,9 +25,11 @@ export default class Lock{
                 roughness: 0.5
             })
         )
+        this.lock.minFilter = THREE.NearestFilter;
     }
 
-    buildLock(){
+    buildLock(x:number, y:number, z:number){
+        this.lock.position.set(x, y, z);
         return this.lock;
     }
 }

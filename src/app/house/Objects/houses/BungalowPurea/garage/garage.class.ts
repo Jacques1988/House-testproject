@@ -12,7 +12,7 @@ export default class Garage {
     garageGate: any = new Door(5, 2.5, 100, 100).buildGarageGate(0, 0.6, 3.05);
     window1: any = new Window(1.5, 1.5).buildWindow(-3, 0.4, 1);
     window2: any = new Window(1.5, 1.5).buildWindow(0.5, 0.4, -3);
-    
+    backdoor:any = new Door(1.2, 2.4, 100, 100).buildDoor(-2, -0.3, -3);
 
     constructor() {
         this.garage.position.set(-6, 2, 0);
@@ -21,10 +21,12 @@ export default class Garage {
         this.window2.position.set(0.5, 0.4, -3);
         this.window2.rotation.y = Math.PI;
 
+        this.backdoor.rotation.y = Math.PI;
 
         this.garage.add(
             this.garageRoom,
             this.garageGate,
+            this.backdoor,
             this.window1,
             this.window2
         )

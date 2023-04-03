@@ -6,6 +6,7 @@ import MiddleBlock from './middleBlock/MiddleBlock.class';
 import EntryBlock from './middleBlock/EntryBlock.class';
 import Kitchen from './middleBlock/Kitchen.class';
 import LivingRoom from './middleBlock/LivingRoom.class';
+import Roof from './roof/Roof.class';
 
 export default class BungalowPurea {
     house = new THREE.Group();
@@ -15,6 +16,7 @@ export default class BungalowPurea {
     kitchen:any = new Kitchen().buildKitchen();
     livingRoom: any = new LivingRoom().buildLivingRoom();
     textureloader:any = new TextureLoader();
+    roof:any = new Roof().buildRoof();
     
 
     constructor(){
@@ -24,7 +26,8 @@ export default class BungalowPurea {
             this.middleBlock,
             this.entryBlock,
             this.kitchen,
-            this.livingRoom
+            this.livingRoom,
+            this.roof
             );
     }
 

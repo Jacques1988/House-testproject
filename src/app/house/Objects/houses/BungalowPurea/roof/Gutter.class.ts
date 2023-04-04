@@ -22,15 +22,16 @@ export default class Gutter {
                 aoMap: this.gutterImages[1],
                 aoMapIntensity: 0.5,
                 displacementMap: this.gutterImages[2],
-                displacementScale: 0.5,
+                displacementScale: 0.1,
                 normalMap: this.gutterImages[3],
                 metalnessMap: this.gutterImages[4],
-                metalness: 0.5,
+                metalness: 0.8,
                 roughnessMap: this.gutterImages[5],
                 roughness: 1
             })
         );
 
+        this.gutterComponent.minFilter = THREE.NearestFilter;
 
         this.gutterImages[0].wrapS = THREE.RepeatWrapping
         this.gutterImages[1].wrapS = THREE.RepeatWrapping

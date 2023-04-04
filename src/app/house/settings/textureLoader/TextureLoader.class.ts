@@ -13,6 +13,7 @@ export default class TextureLoader {
     doorPlaneImages = [];
     garageGlassImages = [];
     windowImages = [];
+    gutterImages = [];
 
     //Locks
     lockImages = [];
@@ -58,7 +59,7 @@ export default class TextureLoader {
         return this.bungalowPureaWallImages;
     }
 
-    loadBungalowPureadoorPlaneImages(){
+    loadBungalowPureadoorPlaneImages() {
         const Garage_Color = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_Color.jpg');
         const Garage_AO = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_AO.jpg');
         const Garage_Height = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/Garage_Height.png');
@@ -68,7 +69,7 @@ export default class TextureLoader {
         return this.doorPlaneImages;
     }
 
-    loadLockImages(){
+    loadLockImages() {
         const Lock_Color = this.textureLoader.load('../../assets/images/houses/locks/Lock_Color.jpg');
         const Lock_AO = this.textureLoader.load('../../assets/images/houses/locks/Lock_AO.jpg');
         const Lock_Height = this.textureLoader.load('../../assets/images/houses/locks/Lock_Height.png');
@@ -80,7 +81,7 @@ export default class TextureLoader {
         return this.lockImages;
     }
 
-    loadGarageGlassImages(){
+    loadGarageGlassImages() {
         const Glass_Color = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_Color.jpg');
         const Glass_AO = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_AO.jpg');
         const Glass_Height = this.textureLoader.load('../../assets/images/houses/BungalowPurea/garage/GarageWindow/Glass_Height.png');
@@ -90,7 +91,7 @@ export default class TextureLoader {
         return this.garageGlassImages;
     }
 
-    loadWindowImages(){
+    loadWindowImages() {
         const Window_Color = this.textureLoader.load('../../assets/images/houses/Windows/Window_Color.jpg');
         const Window_AO = this.textureLoader.load('../../assets/images/houses/Windows/Window_AO.jpg');
         const Window_Height = this.textureLoader.load('../../assets/images/houses/Windows/Window_Height.png');
@@ -100,6 +101,17 @@ export default class TextureLoader {
         const Window_Roughness = this.textureLoader.load('../../assets/images/houses/Windows/Window_Roughness.jpg');
         this.windowImages.push(Window_Color, Window_AO, Window_Height, Window_Normal, Window_Metalness, Window_Alpha, Window_Roughness);
         return this.windowImages;
+    }
+
+    loadGutterImages() {
+        const Gutter_Color = this.textureLoader.load('../../assets/images/houses/BungalowPurea/gutter/Gutter_Color.jpg');
+        const Gutter_AO = this.textureLoader.load('../../assets/images/houses/BungalowPurea/gutter/Gutter_AO.jpg');
+        const Gutter_Height = this.textureLoader.load('../../assets/images/houses/BungalowPurea/gutter/Gutter_Height.png');
+        const Gutter_Normal = this.textureLoader.load('../../assets/images/houses/BungalowPurea/gutter/Gutter_Normal.jpg');
+        const Gutter_Metalness = this.textureLoader.load('../../assets/images/houses/BungalowPurea/gutter/Gutter_Metalness.jpg');
+        const Gutter_Roughness = this.textureLoader.load('../../assets/images/houses/BungalowPurea/gutter/Gutter_Roughness.jpg');
+        this.gutterImages.push(Gutter_Color, Gutter_AO, Gutter_Height, Gutter_Normal, Gutter_Metalness, Gutter_Roughness);
+        return this.gutterImages;
     }
 
 }

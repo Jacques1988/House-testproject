@@ -20,9 +20,6 @@ export default class Roof {
     gutterFrontRight: any = new Gutter(4.5, 0.2, 0.2, 100, 100).buildGutter(6.65, 4, 3);
     gutterFrontRight2: any = new Gutter(1.3, 0.2, 0.2, 100, 100).buildGutter(-3.75, 4, 4.5);
     
-     
-
-
     constructor() {
 
         this.sideWallRight.position.set(4.25, 2, 3.75);
